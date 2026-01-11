@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan - Seblak Sultan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Seblak Sultan</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="tentang.html">Tentang</a></li>
+                <li><a href="lokasi.html">Lokasi</a></li>
+                <li><a href="pesan.html" class="btn">Pesan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="container">
+        <h2 class="section-title">Formulir Pemesanan</h2>
+        <div class="content-box" style="max-width: 600px; margin: 0 auto;">
+            <p style="margin-bottom: 20px; text-align: center;">Isi form di bawah, pesanan akan otomatis terkirim ke WhatsApp kami.</p>
+            
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="name">Nama Pemesan</label>
+                    <input type="text" id="name" class="form-control" placeholder="Contoh: Budi" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Alamat Lengkap</label>
+                    <textarea id="address" class="form-control" rows="3" placeholder="Jl. Mawar No. 12..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="order">Pesanan (Menu & Level Pedas)</label>
+                    <textarea id="order" class="form-control" rows="4" placeholder="Contoh: 1 Seblak Ceker Level 3, 1 Es Teh" required></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;">Kirim ke WhatsApp 📤</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Seblak Sultan.</p>
+    </footer>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil data dari form
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const order = document.getElementById('order').value;
+            
+            // Nomor WA Admin (Ganti dengan nomor Anda, format 628xxx)
+            const phoneNumber = "6281234567890"; 
+            
+            // Format pesan
+            const text = `Halo Admin Seblak Sultan!%0A%0ASaya mau pesan:%0ANama: ${name}%0AAlamat: ${address}%0APesanan: ${order}%0A%0ATerima kasih!`;
+            
+            // Buka WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+</html>
